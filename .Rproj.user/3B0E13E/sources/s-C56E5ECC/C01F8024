@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585698327845.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "765175827",
+    "id" : "C01F8024",
+    "lastKnownWriteTime" : 1585861703,
+    "last_content_update" : 1585861703344,
+    "path" : "~/Documents/capstone/doc/data_cleaning.Rmd",
+    "project_path" : "doc/data_cleaning.Rmd",
+    "properties" : {
+        "cursorPosition" : "8,117",
+        "last_setup_crc32" : "",
+        "scrollLine" : "3",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,99 @@
+---
+title: "Data Cleaning"
+author: "Logan Williams"
+date: "3/31/2020"
+output: html_document
+---
+
+## Introduction
+This notebook was created by Logan Williams. The following code is used to clean data retreived from Social Explorer. 
+
+
+```{r package-load}
+#load packages
+library(dplyr)         #data wrangling
+library(here)          #file path management
+library(tigris)        #load spatial data
+library(sf)            #write shapefiles
+library(readr)         #read csv
+```
+
+```{r}
+#load data
+df <- read_csv(here("data", "R12512595_SL140.csv"))
+```
+
+```{r}
+df%>%
+  #rename variables
+  rename("GEOID" = "Geo_FIPS")%>%
+  rename("pop" = "SE_A00001_001")%>%
+  rename("wht" = "SE_A04001_003")%>%
+  rename("unemp" = "SE_A17005_003")%>%
+  rename("wrkfrc" = "SE_A17005_001")%>%
+  rename("pov1" = "SE_A13003A_002")%>%
+  rename("pov2" = "SE_A13003B_002")%>%
+  rename("pov3" = "SE_A13003C_002")%>%
+  rename("com_tot" = "ACS18_5yr_B28003001")%>%
+  rename("no_com" = "ACS18_5yr_B28003006")%>%
+  rename("no_int" = "ACS18_5yr_B28003005")%>%
+  rename("dial_up" = "ACS18_5yr_B28003002")%>%
+  rename("edu_tot" = "ACS18_5yr_B15003001")%>%
+  rename("brdbnd" = "ACS18_5yr_B28003004")%>%
+  
+  #create percent variables
+  mutate("pct_min" = ((pop-wht)/pop))%>%
+  mutate("pct_unemp" = (unemp/wrkfrc))%>%
+  mutate("pct_pov" = ((pov1+pov2+pov3)/pop))%>%
+  mutate("pct_nocom" = ((no_com+no_int)/com_tot))%>%
+  mutate("nohs" = ((ACS18_5yr_B15003002+ACS18_5yr_B15003003+ACS18_5yr_B15003004+ACS18_5yr_B15003005+
+                      ACS18_5yr_B15003006+ACS18_5yr_B15003007+ACS18_5yr_B15003008+ACS18_5yr_B15003009+
+                      ACS18_5yr_B15003010+ACS18_5yr_B15003011+ACS18_5yr_B15003012)/edu_tot))%>%
+  mutate("nohsgrad" = ((ACS18_5yr_B15003013+ACS18_5yr_B15003014+ACS18_5yr_B15003015+
+                          ACS18_5yr_B15003016)/edu_tot))%>%
+  mutate("hsgrad" = ((ACS18_5yr_B15003017+ACS18_5yr_B15003018+ACS18_5yr_B15003019+
+                        ACS18_5yr_B15003020)/edu_tot))%>%
+  mutate("colgrad" = ((ACS18_5yr_B15003021+ACS18_5yr_B15003022+ACS18_5yr_B15003023+
+                         ACS18_5yr_B15003024+ACS18_5yr_B15003025)/edu_tot))%>%
+  
+  #select desired variables
+  select(GEOID, pop, wht, unemp, wrkfrc, pov1, pov2, pov3, com_tot, no_com, no_int, dial_up, edu_tot, 
+         brdbnd, pct_min, pct_unemp, pct_pov, pct_nocom, nohs, nohsgrad, hsgrad, colgrad) -> df
+```
+
+```{r}
+#load spatial data
+
+stl_cnty <- county_subdivisions(state = "MO", county = 510, cb = FALSE)
+stl <- county_subdivisions(state = "MO", county = 189, cb = FALSE)
+stclr <- county_subdivisions(state = "IL", county = 163, cb = FALSE)
+
+#convert to sf object
+stl_cnty <- st_as_sf(stl_cnty)
+stl <- st_as_sf(stl)
+stclr <- st_as_sf(stclr)
+
+#clean data
+stl_cnty <- stl_cnty %>%
+  select( GEOID, geometry) %>%
+   transform( GEOID = as.numeric(GEOID))
+
+stl <- stl %>%
+  select( GEOID, geometry) %>%
+   transform( GEOID = as.numeric(GEOID))
+
+stclr <- stclr %>%
+  select( GEOID, geometry) %>%
+   transform( GEOID = as.numeric(GEOID))
+
+#write shapefiles
+st_write(stl_cnty, here("data", "shapefiles", "stl_county.shp"), 
+         delete_dsn = TRUE)
+st_write(stl, here("data", "shapefiles", "stl_city.shp"), 
+         delete_dsn = TRUE)
+st_write(stclr, here("data", "shapefiles", "stclair.shp"), 
+         delete_dsn = TRUE)
+```
+
+
+

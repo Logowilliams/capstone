@@ -1,0 +1,5 @@
+"0","library(dplyr)         #data wrangling"
+"0","library(here)          #file path management"
+"0","library(tigris)        #load spatial data"
+"0","library(sf)            #write shapefiles"
+"0","library(readr)         #read csv"

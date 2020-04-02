@@ -1,0 +1,30 @@
+"0","#load data"
+"0","df <- read_csv(here(""data"", ""R12512595_SL140.csv""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_double(),
+  Geo_GEOID = [31mcol_character()[39m,
+  Geo_NAME = [31mcol_character()[39m,
+  Geo_QName = [31mcol_character()[39m,
+  Geo_STUSAB = [31mcol_character()[39m,
+  Geo_GEOCOMP = [31mcol_character()[39m,
+  Geo_FILEID = [31mcol_character()[39m,
+  Geo_LOGRECNO = [31mcol_character()[39m,
+  Geo_US = [33mcol_logical()[39m,
+  Geo_REGION = [33mcol_logical()[39m,
+  Geo_DIVISION = [33mcol_logical()[39m,
+  Geo_STATECE = [33mcol_logical()[39m,
+  Geo_COUSUB = [33mcol_logical()[39m,
+  Geo_PLACE = [33mcol_logical()[39m,
+  Geo_PLACESE = [33mcol_logical()[39m,
+  Geo_BLKGRP = [33mcol_logical()[39m,
+  Geo_CONCIT = [33mcol_logical()[39m,
+  Geo_AIANHH = [33mcol_logical()[39m,
+  Geo_AIANHHFP = [33mcol_logical()[39m,
+  Geo_AIHHTLI = [33mcol_logical()[39m,
+  Geo_AITSCE = [33mcol_logical()[39m
+  # ... with 30 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
