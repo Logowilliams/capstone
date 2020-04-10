@@ -1,0 +1,21 @@
+"0","#load data"
+"0","df <- read_csv(here(""data"", ""clean_data.csv""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_double()
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","#load shapefiles"
+"0","stl <- read_sf(here(""data"", ""shapefiles"", ""stl_city.shp""))"
+"0",""
+"0","cnty <- read_sf(here(""data"", ""shapefiles"", ""stl_county.shp""))"
+"0",""
+"0","stclr <- read_sf(here(""data"", ""shapefiles"", ""stclair.shp""))"
+"0",""
+"0","madison <- read_sf(here(""data"", ""shapefiles"", ""madison.shp""))"
+"0",""
+"0","tot <- read_sf(here(""data"", ""shapefiles"", ""tot.shp""))"
+"2","Error: Cannot open ""/Users/loganbogenut/Documents/capstone/data/shapefiles/tot.shp""; The file doesn't seem to exist.
+"

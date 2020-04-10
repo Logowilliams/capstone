@@ -1,0 +1,11 @@
+"0","#load data"
+"0","df <- read_csv(here(""data"", ""clean_data.csv""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_double()
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","#load corrTable function"
+"0","source(here(""source"", ""corrTable.R""))"

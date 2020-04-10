@@ -1,0 +1,59 @@
+---
+title: "Descriptive Statistics"
+author: "Logan Williams"
+date: "4/2/2020"
+output: html_document
+---
+
+```{r}
+library(here)
+library(readr)
+library(stargazer)
+```
+
+
+
+```{r}
+#load data
+df <- read_csv(here("data", "clean_data.csv"))
+
+#load corrTable function
+source(here("source", "corrTable.R"))
+```
+
+
+```{r}
+df_sub <- select(df, pct_min, pct_unemp, pct_pov, pct_nocom, nohs, nohsgrad, hsgrad, colgrad)
+
+stargazer(data.frame(df_sub), title = "Descriptive Statistics", summary = TRUE, omit.summary.stat = c("p25", "p75"), type = "html", out = here("results", "descriptive_stats.html"))
+```
+
+```{r}
+#create correlation table
+table <- corrTable(df, coef= "pearson", listwise = TRUE, round = 3, pStar = T, `pct_nocom`, `pct_min`, `pct_unemp`, `pct_pov`, `nohs`, `nohsgrad`, `hsgrad`, `colgrad`)
+
+write_csv(table, here("results", "corrtable.csv"))
+```
+
+
+```{r, eval=TRUE, warning=FALSE, fig.cap="Regression Line"}
+ggplot(df, aes(x = pct_min, y = pct_com)) + 
+  geom_jitter() +
+  labs(x = "Percent Minority", y = "Internet and Computer Access (%)") + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+```{r, eval=TRUE, warning=FALSE, fig.cap="Regression Line"}
+ggplot(df, aes(x = pct_pov, y = pct_com)) + 
+  geom_jitter() +
+  labs(x = "Percent Poverty", y = "Internet and Computer Access (%)") + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+```{r, eval=TRUE, warning=FALSE, fig.cap="Regression Line"}
+ggplot(df, aes(x = colgrad, y = pct_com)) + 
+  geom_jitter() +
+  labs(x = "College Educated Population 25 and Over (%)", y = "Internet and Computer Access (%)") + 
+  geom_smooth(method = "lm", se = FALSE)
+```

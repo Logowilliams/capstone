@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585891044589.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DB720A72",
+    "lastKnownWriteTime" : 420906795040,
+    "last_content_update" : 1585891044589,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "951E3489",
+        "caption" : "madison_shp",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=madison_shp&cache_key=951E3489",
+        "displayedObservations" : "61",
+        "environment" : "",
+        "expression" : "madison_shp",
+        "object" : "madison_shp",
+        "preview" : "0",
+        "totalObservations" : "61",
+        "variables" : "23"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,31 @@
+"0","library(here)       #file path management"
+"2","here() starts at /Users/loganbogenut/Documents/capstone
+"
+"0","library(readr)"
+"0","library(ggplot2)"
+"2","Registered S3 method overwritten by 'dplyr':
+  method           from
+  print.rowwise_df     
+"
+"0","library(sf)"
+"2","Linking to GEOS 3.7.2, GDAL 2.4.2, PROJ 5.2.0
+"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(RColorBrewer)"
+"0","library(ggsn)"
+"2","Loading required package: grid
+"

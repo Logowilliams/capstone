@@ -1,0 +1,5 @@
+"0","#join shapefiles with clean data"
+"0","stl_shp <- left_join(stl, df, by = c(""GEOID""))"
+"0","cnty_shp <- left_join(cnty, df, by = ""GEOID"")"
+"0","stclr_shp <- left_join(stclr, df, by = ""GEOID"")"
+"0","madison_shp <- left_join(madison, df, by = ""GEOID"")"

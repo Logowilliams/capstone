@@ -1,0 +1,4 @@
+"0","ggplot(df, aes(x = pct_pov, y = pct_com)) + "
+"0","  geom_jitter() +"
+"0","  labs(x = ""Percent Poverty"", y = ""No Internet or Computer (%)"") + "
+"0","  geom_smooth(method = ""lm"", se = FALSE)"
