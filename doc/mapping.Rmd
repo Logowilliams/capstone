@@ -32,22 +32,10 @@ tot <- read_sf(here("data", "shapefiles", "tot.shp"))
 ```
 
 ```{r}
-#join shapefiles with clean data
-stl_shp <- left_join(stl, df, by = c("GEOID"))
-cnty_shp <- left_join(cnty, df, by = "GEOID")
-stclr_shp <- left_join(stclr, df, by = "GEOID")
-madison_shp <- left_join(madison, df, by = "GEOID")
-tot <- left_join(tot, df, by = "GEOID")
-```
-
-```{r}
 #map college educated
 ggplot() + 
-  geom_sf(data = stl_shp, mapping = aes(fill = colgrad))+
-  geom_sf(data = cnty_shp, mapping = aes(fill = colgrad))+
-  geom_sf(data = stclr_shp, mapping = aes(fill = colgrad))+
-  geom_sf(data = madison_shp, mapping = aes(fill = colgrad))+
-  scale_fill_viridis_c(name = "Population with no \nComputer or Internet (%)")+
+  geom_sf(data = tot, mapping = aes(fill = colgrad))+
+  scale_fill_viridis_c(name = "College Educated\nPopulation (%)")+
   labs(
     title = "2018 St Louis Region College Educated Population",
     subtitle = "By Logan Williams",
@@ -59,10 +47,7 @@ ggplot() +
 ```{r}
 #map minority pop
 ggplot() + 
-  geom_sf(data = stl_shp, mapping = aes(fill = pct_min))+
-  geom_sf(data = cnty_shp, mapping = aes(fill = pct_min))+
-  geom_sf(data = stclr_shp, mapping = aes(fill = pct_min))+
-  geom_sf(data = madison_shp, mapping = aes(fill = pct_min))+
+  geom_sf(data = tot, mapping = aes(fill = pct_min))+
   scale_fill_viridis_c(name = "Minority Population (%)")+
   labs(
     title = "2018 St Louis Region Minority Population",
@@ -75,13 +60,23 @@ ggplot() +
 ```{r}
 #map poverty
 ggplot() + 
-  geom_sf(data = stl_shp, mapping = aes(fill = pct_pov))+
-  geom_sf(data = cnty_shp, mapping = aes(fill = pct_pov))+
-  geom_sf(data = stclr_shp, mapping = aes(fill = pct_pov))+
-  geom_sf(data = madison_shp, mapping = aes(fill = pct_pov))+
+  geom_sf(data = tot, mapping = aes(fill = pct_pov))+
   scale_fill_viridis_c(name = "Population Living at\nor Below Poverty")+
   labs(
     title = "2018 St Louis Region Poverty",
+    subtitle = "By Logan Williams",
+    caption = "Data from Social Explorer and the US Census through the ACS"
+  )  +
+  theme_void()
+```
+
+```{r}
+#map unemployment
+ggplot() + 
+  geom_sf(data = tot, mapping = aes(fill = pct_unemp))+
+  scale_fill_viridis_c(name = "Unemployment (%)")+
+  labs(
+    title = "2018 St Louis Region Unemployment",
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +

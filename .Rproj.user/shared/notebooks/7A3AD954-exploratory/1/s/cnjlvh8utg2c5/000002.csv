@@ -1,4 +1,0 @@
-"0","#create correlation table"
-"0","table <- corrTable(df, coef= ""pearson"", listwise = TRUE, round = 3, pStar = T, `pct_nocom`, `pct_min`, `pct_unemp`, `pct_pov`, `nohs`, `nohsgrad`, `hsgrad`, `colgrad`)"
-"0",""
-"0","write_csv(table, here(""results"", ""corrtable.csv""))"

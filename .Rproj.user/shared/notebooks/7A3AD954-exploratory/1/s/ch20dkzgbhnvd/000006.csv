@@ -1,4 +1,0 @@
-"0","ggplot(df, aes(x = colgrad, y = pct_com)) + "
-"0","  geom_jitter() +"
-"0","  labs(x = ""College Educated Population 25 and Over (%)"", y = ""Internet and Computer Access (%)"") + "
-"0","  geom_smooth(method = ""lm"", se = FALSE)"
