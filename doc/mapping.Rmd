@@ -20,14 +20,6 @@ library(ggsn)
 df <- read_csv(here("data", "clean_data.csv"))
 
 #load shapefiles
-stl <- read_sf(here("data", "shapefiles", "stl_city.shp"))
-
-cnty <- read_sf(here("data", "shapefiles", "stl_county.shp"))
-
-stclr <- read_sf(here("data", "shapefiles", "stclair.shp"))
-
-madison <- read_sf(here("data", "shapefiles", "madison.shp"))
-
 tot <- read_sf(here("data", "shapefiles", "tot.shp"))
 ```
 
@@ -41,7 +33,9 @@ ggplot() +
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +
-  theme_void()
+  theme_void()-> map
+
+ggsave(here("results", "maps", "pctedu.png"), plot = map, dpi = 500)
 ```
 
 ```{r}
@@ -54,7 +48,9 @@ ggplot() +
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +
-  theme_void()
+  theme_void()-> map
+
+ggsave(here("results", "maps", "pctmin.png"), plot = map, dpi = 500)
 ```
 
 ```{r}
@@ -67,7 +63,9 @@ ggplot() +
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +
-  theme_void()
+  theme_void()-> map
+
+ggsave(here("results", "maps", "pctpov.png"), plot = map, dpi = 500)
 ```
 
 ```{r}
@@ -80,7 +78,9 @@ ggplot() +
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +
-  theme_void()
+  theme_void()-> map
+
+ggsave(here("results", "maps", "pctunemp.png"), plot = map, dpi = 500)
 ```
 
 ```{r}
@@ -93,6 +93,8 @@ ggplot() +
     subtitle = "By Logan Williams",
     caption = "Data from Social Explorer and the US Census through the ACS"
   )  +
-  theme_void()
+  theme_void()-> map
+
+ggsave(here("results", "maps", "pctcomp.png"), plot = map, dpi = 500)
 ```
 

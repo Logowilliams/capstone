@@ -35,6 +35,7 @@ stargazer(data.frame(df_sub), title = "Descriptive Statistics", summary = TRUE, 
 table <- corrTable(df, coef= "pearson", listwise = TRUE, round = 3, pStar = T, `pct_com`, `pct_min`, `pct_unemp`, `pct_pov`, `colgrad`)
 
 write_csv(table, here("results", "corrtable.csv"))
+table
 ```
 
 
@@ -42,16 +43,18 @@ write_csv(table, here("results", "corrtable.csv"))
 ggplot(df, aes(x = pct_min, y = pct_com)) + 
   geom_jitter() +
   labs(x = "Percent Minority", y = "Internet and Computer Access (%)") + 
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) -> plot
 
-ggsave(here("results", "plots", "pctmin.png"))
+ggsave(here("results", "plots", "pctmin.png"), plot = plot, dpi = 500)
 ```
 
 ```{r, eval=TRUE, warning=FALSE, fig.cap="Regression Line"}
 ggplot(df, aes(x = pct_pov, y = pct_com)) + 
   geom_jitter() +
   labs(x = "Percent Poverty", y = "Internet and Computer Access (%)") + 
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) -> plot
+
+ggsave(here("results", "plots", "pctpov.png"), plot = plot, dpi = 500)
 ```
 
 
@@ -59,12 +62,16 @@ ggplot(df, aes(x = pct_pov, y = pct_com)) +
 ggplot(df, aes(x = colgrad, y = pct_com)) + 
   geom_jitter() +
   labs(x = "College Educated Population 25 and Over (%)", y = "Internet and Computer Access (%)") + 
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE)-> plot
+
+ggsave(here("results", "plots", "pctedu.png"), plot = plot, dpi = 500)
 ```
 
 ```{r, eval=TRUE, warning=FALSE, fig.cap="Regression Line"}
 ggplot(df, aes(x = pct_unemp, y = pct_com)) + 
   geom_jitter() +
   labs(x = "Percent Unemployment", y = "Internet and Computer Access (%)") + 
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE)-> plot
+
+ggsave(here("results", "plots", "pctunemp.png"), plot = plot, dpi = 500)
 ```

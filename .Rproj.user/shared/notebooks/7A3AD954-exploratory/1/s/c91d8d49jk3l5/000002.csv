@@ -1,5 +1,34 @@
 "0","library(here)       # file path management"
+"2","here() starts at /Users/loganbogenut/Documents/capstone
+"
 "0","library(readr)      # read csv"
 "0","library(stargazer)  # tables"
+"2","
+Please cite as: 
+
+"
+"2"," Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+"
+"2"," R package version 5.2.2. https://CRAN.R-project.org/package=stargazer 
+
+"
 "0","library(dplyr)      # cleaning data"
+"2","Registered S3 method overwritten by 'dplyr':
+  method           from
+  print.rowwise_df     
+"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
 "0","library(ggplot2)    # plotting"

@@ -1,4 +1,8 @@
 "0","ggplot(df, aes(x = pct_pov, y = pct_com)) + "
 "0","  geom_jitter() +"
 "0","  labs(x = ""Percent Poverty"", y = ""Internet and Computer Access (%)"") + "
-"0","  geom_smooth(method = ""lm"", se = FALSE)"
+"0","  geom_smooth(method = ""lm"", se = FALSE) -> plot"
+"0",""
+"0","ggsave(here(""results"", ""plots"", ""pctpov.png""), plot = plot, dpi = 500)"
+"2","Saving 7 x 7 in image
+"
